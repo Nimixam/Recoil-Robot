@@ -1,0 +1,280 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Enemies/Ship/Ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/SpikyCrate/SoikyCrate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/Turret/Turret.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Hole/Hole.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/Border/SpikyBorder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemies/Slime/Slime.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Crate/Crate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/rooms/Special/boss_script.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/rooms/Backgrounds/Damage.png" type="Texture" id=9]
+
+[sub_resource type="TileSet" id=1]
+
+[sub_resource type="NavigationPolygon" id=2]
+vertices = PoolVector2Array( 4068, 1540, 4076, 1496, 4060, 2572, 3308, 844, 3220, 860, 3224, 672, 280, 2564, 220, 2568, 216, 2220, 44, 2224, 48, 1696, 380, 1704, 1208, 2096, 92, -76, 88, -224, 204, -224, 1204, 2316, 1208, 2564, 556, 2564, 3280, 1540, 3400, 2564, 1564, 2560, 2848, 1536, 2508, 1532, 2768, 1532, 1564, 2312, 1564, 2096, 2512, 1072, 44, 2092, -184, 2224, -184, 704, 40, 1412, 88, 704, 380, 1412, 92, 464, -188, 464, -188, -76, 212, -476, 1256, -476, 1256.93, -387.111, 1260, -248, 2508, 672, 1492, -252, 1496, -476, 2460, -480, 4064, -480, 4140, 676, 4140, 732, 3520, 812 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 4, 5 ), PoolIntArray( 6, 7, 8 ), PoolIntArray( 8, 9, 10, 11, 12 ), PoolIntArray( 13, 14, 15 ), PoolIntArray( 16, 17, 18 ), PoolIntArray( 19, 0, 2, 20 ), PoolIntArray( 19, 20, 21, 22 ), PoolIntArray( 23, 24, 22, 21, 25 ), PoolIntArray( 23, 25, 26, 27 ), PoolIntArray( 28, 9, 29, 30, 31 ), PoolIntArray( 31, 30, 32, 33 ), PoolIntArray( 34, 35, 36, 13 ), PoolIntArray( 37, 38, 39, 15 ), PoolIntArray( 13, 15, 39, 40, 34 ), PoolIntArray( 41, 42, 43, 44, 5 ), PoolIntArray( 44, 45, 46, 47, 48, 5 ), PoolIntArray( 18, 6, 8, 12, 16 ), PoolIntArray( 48, 3, 5 ), PoolIntArray( 41, 27, 26, 12, 11, 33, 40, 42 ), PoolIntArray( 32, 34, 40, 33 ) ]
+outlines = [ PoolVector2Array( -184, 2224, -184, 704, 88, 704, 92, 464, -188, 464, -188, -76, 92, -76, 88, -224, 204, -224, 212, -476, 1256, -476, 1256.93, -387.111, 1260, -248, 1492, -252, 1496, -476, 2460, -480, 4064, -480, 4140, 676, 4140, 732, 3520, 812, 3308, 844, 3220, 860, 3224, 672, 2508, 672, 2512, 1072, 2508, 1532, 2768, 1532, 2848, 1536, 3280, 1540, 4068, 1540, 4076, 1496, 4060, 2572, 3400, 2564, 1564, 2560, 1564, 2312, 1564, 2096, 1208, 2096, 1204, 2316, 1208, 2564, 556, 2564, 280, 2564, 220, 2568, 216, 2220, 44, 2224, 48, 1696, 380, 1704, 380, 1412, 40, 1412, 44, 2092, 44, 2224 ) ]
+
+[sub_resource type="NavigationPolygon" id=3]
+vertices = PoolVector2Array( -109.554, -121.019, -116.561, -210.828, -57.3249, -211.465, -62.4204, -121.656, -56.6879, -264.331, 217.834, -265.605, 214.013, 219.108, -60.5096, -71.9745, -54.7771, 12.7388, -119.745, 147.771, -119.108, 82.1656, -54.7771, 82.8025, -54.7771, 148.408, -52.8663, 218.471, -119.745, 55.414, -329.299, 54.7771, -332.484, -40.1274, -114.65, -71.9745 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 2 ), PoolIntArray( 7, 3, 2, 6, 8 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 6, 13, 12, 11 ), PoolIntArray( 8, 14, 15, 16, 17, 7 ), PoolIntArray( 11, 8, 6 ) ]
+outlines = [ PoolVector2Array( -109.554, -121.019, -62.4204, -121.656, -60.5096, -71.9745, -114.65, -71.9745, -332.484, -40.1274, -329.299, 54.7771, -119.745, 55.414, -54.7771, 12.7388, -54.7771, 82.8025, -119.108, 82.1656, -119.745, 147.771, -54.7771, 148.408, -52.8663, 218.471, 214.013, 219.108, 217.834, -265.605, -56.6879, -264.331, -57.3249, -211.465, -116.561, -210.828 ) ]
+
+[node name="World" type="Node2D"]
+pause_mode = 1
+script = ExtResource( 8 )
+
+[node name="Background" type="TileMap" parent="."]
+position = Vector2( -74, 0 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 1920, 1080 )
+format = 1
+
+[node name="Background" type="Sprite" parent="Background"]
+position = Vector2( 1034, 540 )
+texture = ExtResource( 9 )
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2( 146, 148 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemies" type="Node2D" parent="Entities"]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Navigation2D" type="Navigation2D" parent="Entities/Enemies"]
+edge_connection_margin = 20.0
+
+[node name="NavPolyW" type="NavigationPolygonInstance" parent="Entities/Enemies/Navigation2D"]
+position = Vector2( 240, 508 )
+navpoly = SubResource( 2 )
+
+[node name="NavPolyE" type="NavigationPolygonInstance" parent="Entities/Enemies/Navigation2D"]
+position = Vector2( 5060, 1692 )
+scale = Vector2( 6.28, 6.28 )
+navpoly = SubResource( 3 )
+
+[node name="ShipW" parent="Entities/Enemies/Navigation2D" instance=ExtResource( 1 )]
+position = Vector2( 1704, 1596 )
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Entities/Enemies/Navigation2D/ShipW"]
+
+[node name="ShipW2" parent="Entities/Enemies/Navigation2D" instance=ExtResource( 1 )]
+position = Vector2( 1704, 1852 )
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Entities/Enemies/Navigation2D/ShipW2"]
+
+[node name="ShipN" parent="Entities/Enemies/Navigation2D" instance=ExtResource( 1 )]
+position = Vector2( 3076, 432 )
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Entities/Enemies/Navigation2D/ShipN"]
+
+[node name="TurretNW" parent="Entities/Enemies" instance=ExtResource( 3 )]
+position = Vector2( 180, 156 )
+
+[node name="TurretSW" parent="Entities/Enemies" instance=ExtResource( 3 )]
+position = Vector2( 164, 2980 )
+
+[node name="SlimeS" parent="Entities/Enemies" instance=ExtResource( 6 )]
+position = Vector2( 3852, 2508 )
+scale = Vector2( 5, 5 )
+
+[node name="SlimeS2" parent="Entities/Enemies" instance=ExtResource( 6 )]
+position = Vector2( 5348, 2868 )
+scale = Vector2( 5, 5 )
+
+[node name="SlimeS3" parent="Entities/Enemies" instance=ExtResource( 6 )]
+position = Vector2( 6072, 1948 )
+scale = Vector2( 5, 5 )
+
+[node name="SlimeS4" parent="Entities/Enemies" instance=ExtResource( 6 )]
+position = Vector2( 4952, 1332 )
+scale = Vector2( 5, 5 )
+
+[node name="SlimeS5" parent="Entities/Enemies" instance=ExtResource( 6 )]
+position = Vector2( 6124, 516 )
+scale = Vector2( 5, 5 )
+
+[node name="SlimeS6" parent="Entities/Enemies" instance=ExtResource( 6 )]
+position = Vector2( 4940, 252 )
+
+[node name="Objects" type="Node2D" parent="."]
+position = Vector2( 146, 148 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Crates" type="Node2D" parent="Objects"]
+position = Vector2( 1668, -238 )
+
+[node name="CrateM" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( -240, 886 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrateNW2" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( -858, 310 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrateSW2" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( -856, 1640 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrateNW" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( -1566, 776 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrateSW" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( -1448, 1278 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrateM2" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( -240, 1010 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrateM3" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( -240, 1074 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrateE4" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 590, 1668 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrateE3" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 590, 1240 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrateE2" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 590, 784 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CrateE" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 590, 356 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Holes" type="Node2D" parent="Objects"]
+
+[node name="HoleNW" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 160, 42 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleNW5" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 160, 42 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleNW2" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 160, 100 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleM" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 1492, 648 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleM2" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 1556, 648 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleM3" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 1620, 648 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleM4" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 1684, 648 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleM5" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 1428, 898 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleM6" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 1428, 712 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleNW3" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 56, 154 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleNW4" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 120, 154 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleSW3" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 174, 1456 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleSW4" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 176, 1510 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleSW" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 60, 1416 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleSW2" parent="Objects/Holes" instance=ExtResource( 4 )]
+position = Vector2( 126, 1416 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="SpikyCrate" type="Node2D" parent="Objects"]
+
+[node name="SpikyCrateNE" parent="Objects/SpikyCrate" instance=ExtResource( 2 )]
+position = Vector2( 2920, 28 )
+
+[node name="SpikyCrateNE2" parent="Objects/SpikyCrate" instance=ExtResource( 2 )]
+position = Vector2( 2366, 440 )
+
+[node name="SpikyCrateE" parent="Objects/SpikyCrate" instance=ExtResource( 2 )]
+position = Vector2( 2876, 634 )
+
+[node name="SpikyCrateSE" parent="Objects/SpikyCrate" instance=ExtResource( 2 )]
+position = Vector2( 2452, 1038 )
+
+[node name="SpikyCrateSE2" parent="Objects/SpikyCrate" instance=ExtResource( 2 )]
+position = Vector2( 2866, 1344 )
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="SpikyBorderN" parent="Borders" instance=ExtResource( 5 )]
+position = Vector2( 950, 89.9999 )
+rotation = -1.5708
+scale = Vector2( 2.6, 39.52 )
+
+[node name="SpikyBorderE" parent="Borders" instance=ExtResource( 5 )]
+position = Vector2( 1815, 533 )
+scale = Vector2( 2.6, 19.52 )
+
+[node name="SpikyBorderS" parent="Borders" instance=ExtResource( 5 )]
+position = Vector2( 948, 981 )
+rotation = -1.5708
+scale = Vector2( 2.6, 39.52 )
+
+[node name="SpikyBorderW" parent="Borders" instance=ExtResource( 5 )]
+position = Vector2( 95, 541 )
+scale = Vector2( 2.6, 19.52 )

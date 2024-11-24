@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/rooms/Backgrounds/Default.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Border/Border.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/Turret/Turret.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Crate/Crate.Tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemies/Slime/Slime.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Hole/Hole.tscn" type="PackedScene" id=9]
+
+[sub_resource type="TileSet" id=1]
+
+[node name="World" type="Node2D"]
+pause_mode = 1
+
+[node name="Background" type="TileMap" parent="."]
+position = Vector2( -74, 0 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 1920, 1080 )
+format = 1
+
+[node name="Background" type="Sprite" parent="Background"]
+position = Vector2( 779, 403 )
+texture = ExtResource( 1 )
+offset = Vector2( 255, 137 )
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="Entities"]
+
+[node name="TurretNW" parent="Entities/Enemies" instance=ExtResource( 5 )]
+position = Vector2( 233, 240 )
+
+[node name="TurretSE" parent="Entities/Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1689, 842 )
+
+[node name="MiniSlime" parent="Entities/Enemies" instance=ExtResource( 8 )]
+position = Vector2( 254, 819 )
+scale = Vector2( 5, 5 )
+
+[node name="Slime" parent="Entities/Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1635, 291 )
+scale = Vector2( 5, 5 )
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Trees" type="Node2D" parent="Objects"]
+
+[node name="TreeNW" parent="Objects/Trees" instance=ExtResource( 7 )]
+position = Vector2( 770, 412 )
+
+[node name="TreeNW2" parent="Objects/Trees" instance=ExtResource( 7 )]
+position = Vector2( 899, 413 )
+
+[node name="TreeN" parent="Objects/Trees" instance=ExtResource( 7 )]
+position = Vector2( 1025, 413 )
+
+[node name="TreeNE" parent="Objects/Trees" instance=ExtResource( 7 )]
+position = Vector2( 1155, 412 )
+
+[node name="TreeNE2" parent="Objects/Trees" instance=ExtResource( 7 )]
+position = Vector2( 1158, 540 )
+
+[node name="TreeNW3" parent="Objects/Trees" instance=ExtResource( 7 )]
+position = Vector2( 772, 540 )
+
+[node name="TreeNE3" parent="Objects/Trees" instance=ExtResource( 7 )]
+position = Vector2( 1698, 412 )
+
+[node name="TreeNW4" parent="Objects/Trees" instance=ExtResource( 7 )]
+position = Vector2( 576, 241 )
+
+[node name="TreeNW5" parent="Objects/Trees" instance=ExtResource( 7 )]
+position = Vector2( 237, 550 )
+
+[node name="TreeSE" parent="Objects/Trees" instance=ExtResource( 7 )]
+position = Vector2( 1513, 644 )
+
+[node name="Holes" type="Node2D" parent="Objects"]
+
+[node name="HoleSW" parent="Objects/Holes" instance=ExtResource( 9 )]
+position = Vector2( 771, 667 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleSE" parent="Objects/Holes" instance=ExtResource( 9 )]
+position = Vector2( 1158, 667 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="BorderN" parent="Borders" instance=ExtResource( 4 )]
+position = Vector2( 960, 70 )
+rotation = -0.000179385
+scale = Vector2( 39, 2.827 )
+z_as_relative = false
+
+[node name="BorderE" parent="Borders" instance=ExtResource( 4 )]
+position = Vector2( 1847, 539 )
+rotation = 1.5708
+scale = Vector2( 20.8419, 2.83221 )
+z_as_relative = false
+
+[node name="BorderS" parent="Borders" instance=ExtResource( 4 )]
+position = Vector2( 960, 1010 )
+rotation = -0.000179385
+scale = Vector2( 39, 2.832 )
+z_as_relative = false
+
+[node name="BorderW" parent="Borders" instance=ExtResource( 4 )]
+position = Vector2( 70, 553 )
+rotation = 1.5708
+scale = Vector2( 20.8419, 2.83221 )
+z_as_relative = false

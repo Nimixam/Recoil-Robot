@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/rooms/Backgrounds/Damage.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Border/SpikyBorder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/Ship/Ship.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Hole/Hole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Crate/Crate.tscn" type="PackedScene" id=7]
+
+[sub_resource type="TileSet" id=1]
+
+[sub_resource type="NavigationPolygon" id=2]
+vertices = PoolVector2Array( 507, 780, 424, 778, 430, 619, 1153, 172, 737, 614, 180, 617, 183, 305, 302, 302, 1610, 292, 1734, 293, 1731, 616, 1480, 618, 1312, 782, 1179, 619, 1608, 171, 1398, 784, 1183, 782, 304, 181, 735, 778, 606, 780, 1478, 781 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 2, 5, 6, 7 ), PoolIntArray( 8, 9, 10, 11 ), PoolIntArray( 12, 13, 3, 14, 8, 11, 15 ), PoolIntArray( 12, 16, 13 ), PoolIntArray( 7, 17, 3, 2 ), PoolIntArray( 4, 18, 19, 0 ), PoolIntArray( 11, 20, 15 ), PoolIntArray( 3, 13, 4 ) ]
+outlines = [ PoolVector2Array( 1153, 172, 1608, 171, 1610, 292, 1734, 293, 1731, 616, 1480, 618, 1478, 781, 1398, 784, 1312, 782, 1183, 782, 1179, 619, 737, 614, 735, 778, 606, 780, 507, 780, 424, 778, 430, 619, 180, 617, 183, 305, 302, 302, 304, 181 ) ]
+
+[sub_resource type="NavigationPolygon" id=3]
+vertices = PoolVector2Array( 183, 780, 1722, 785, 1722, 890, 184, 897 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 183, 780, 1722, 785, 1722, 890, 184, 897 ) ]
+
+[node name="World" type="Node2D"]
+pause_mode = 1
+
+[node name="Background" type="TileMap" parent="."]
+position = Vector2( -74, 0 )
+tile_set = SubResource( 1 )
+cell_size = Vector2( 1920, 1080 )
+format = 1
+
+[node name="Background" type="Sprite" parent="Background"]
+position = Vector2( 1034, 540 )
+texture = ExtResource( 1 )
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="Entities"]
+
+[node name="Navigation2D" type="Navigation2D" parent="Entities/Enemies"]
+edge_connection_margin = 20.0
+
+[node name="NavPolyN" type="NavigationPolygonInstance" parent="Entities/Enemies/Navigation2D"]
+navpoly = SubResource( 2 )
+
+[node name="NavPolyS" type="NavigationPolygonInstance" parent="Entities/Enemies/Navigation2D"]
+navpoly = SubResource( 3 )
+
+[node name="ShipS" parent="Entities/Enemies/Navigation2D" instance=ExtResource( 5 )]
+position = Vector2( 960, 835 )
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Entities/Enemies/Navigation2D/ShipS"]
+
+[node name="ShipSW" parent="Entities/Enemies/Navigation2D" instance=ExtResource( 5 )]
+position = Vector2( 458, 835 )
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Entities/Enemies/Navigation2D/ShipSW"]
+
+[node name="ShipSE" parent="Entities/Enemies/Navigation2D" instance=ExtResource( 5 )]
+position = Vector2( 1460, 835 )
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Entities/Enemies/Navigation2D/ShipSE"]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Holes" type="Node2D" parent="Objects"]
+
+[node name="HoleNW" parent="Objects/Holes" instance=ExtResource( 6 )]
+position = Vector2( 209, 218 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="HoleNE" parent="Objects/Holes" instance=ExtResource( 6 )]
+position = Vector2( 1698, 209 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="Crates" type="Node2D" parent="Objects"]
+
+[node name="CrateSW1" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 208, 700 )
+
+[node name="CrateSW2" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 336, 700 )
+
+[node name="CrateS1" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 832, 700 )
+
+[node name="CrateS2" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 960, 700 )
+
+[node name="CrateS3" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 1088, 700 )
+
+[node name="CrateSE1" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 1572, 700 )
+
+[node name="CrateSE2" parent="Objects/Crates" instance=ExtResource( 7 )]
+position = Vector2( 1700, 700 )
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="SpikyBorderN" parent="Borders" instance=ExtResource( 4 )]
+position = Vector2( 950, 89.9999 )
+rotation = -1.5708
+scale = Vector2( 2.6, 39.52 )
+
+[node name="SpikyBorderE" parent="Borders" instance=ExtResource( 4 )]
+position = Vector2( 1815, 533 )
+scale = Vector2( 2.6, 19.52 )
+
+[node name="SpikyBorderS" parent="Borders" instance=ExtResource( 4 )]
+position = Vector2( 948, 981 )
+rotation = -1.5708
+scale = Vector2( 2.6, 39.52 )
+
+[node name="SpikyBorderW" parent="Borders" instance=ExtResource( 4 )]
+position = Vector2( 95, 541 )
+scale = Vector2( 2.6, 19.52 )

@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/menus/scripts/Options.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/menus/scenes/menu_background.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/menus/scenes/Alien Ravager.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/menus/scenes/back.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[node name="Options" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Background2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -5.0
+margin_top = 95.0
+margin_right = -5.0
+margin_bottom = 95.0
+color = Color( 0.109804, 0.0862745, 0.0862745, 1 )
+
+[node name="Sprite" type="Sprite" parent="Background2"]
+position = Vector2( 958, 529 )
+scale = Vector2( 0.389638, 0.389638 )
+texture = ExtResource( 2 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 640.0
+margin_top = 100.0
+rect_scale = Vector2( 5, 5 )
+columns = 2
+
+[node name="FullscreenLabel" type="Label" parent="GridContainer"]
+margin_top = 11.0
+margin_right = 94.0
+margin_bottom = 29.0
+theme = SubResource( 2 )
+text = "Fullscreen"
+
+[node name="FulllscreenSwitch" type="CheckButton" parent="GridContainer"]
+margin_left = 98.0
+margin_right = 174.0
+margin_bottom = 40.0
+pressed = true
+
+[node name="MusicLabel" type="Label" parent="GridContainer"]
+margin_top = 55.0
+margin_right = 94.0
+margin_bottom = 73.0
+theme = SubResource( 4 )
+text = "Music"
+
+[node name="MusicSwitch" type="CheckButton" parent="GridContainer"]
+margin_left = 98.0
+margin_top = 44.0
+margin_right = 174.0
+margin_bottom = 84.0
+pressed = true
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 586.0
+margin_top = 506.0
+margin_right = 1591.0
+margin_bottom = 705.0
+rect_scale = Vector2( 0.746418, 1.27412 )
+icon = ExtResource( 4 )
+flat = true
+
+[connection signal="toggled" from="GridContainer/FulllscreenSwitch" to="." method="_on_FulllscreenSwitch_toggled"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
